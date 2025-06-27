@@ -11,8 +11,9 @@ from django.http import HttpResponse
 
 
 
-# 🔐 Replace this with your actual API key
 
+# 🔐 Replace this with your actual API key
+OPENAI_API_KEY = ""
 
 def generate_ai_insights(data):
     url = "https://api.openai.com/v1/chat/completions"
