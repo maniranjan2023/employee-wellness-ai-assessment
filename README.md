@@ -24,19 +24,6 @@ A Django + PostgreSQL application that collects employee assessment data and gen
 
 ---
 
-## 🏆 Most Effective Prompt
-
-```plaintext
-Given the following employee assessment data:
-{data}
-
-1. Personal Summary (3-4 sentences)
-2. Top 3 Recommendations (actionable)
-3. Overall Wellness Score with a short explanation
-```
-
----
-
 ## 🧱 One Challenge Overcome
 
 Ensuring PostgreSQL database schema matched Django models precisely, especially for longer AI-generated text fields.
