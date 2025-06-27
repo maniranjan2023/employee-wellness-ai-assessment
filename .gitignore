@@ -1,0 +1,46 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.sqlite3
+
+# Django specific
+db.sqlite3
+.env
+*.log
+local_settings.py
+
+# Environment
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.env
+
+# VSCode / IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Static/media files (optional if using Tailwind or storing uploads)
+staticfiles/
+static/
+media/
+
+# Node/Tailwind
+node_modules/
+dist/
+build/
+*.map
+
+# Migrations (optional, for local-only dev)
+**/migrations/*.pyc
+**/migrations/__pycache__/
+**/migrations/*.py
+!**/migrations/__init__.py
