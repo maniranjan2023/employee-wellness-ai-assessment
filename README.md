@@ -1,61 +1,141 @@
-# 🧠 Employee AI Insight Tool
+# 🧠 Employee-Wellness-Ai-Assessment Platform
 
-A web-based HR assistant that collects employee assessment data and generates AI-powered personalized summaries, actionable recommendations, and a wellness score using GPT-4.
+A Django + PostgreSQL application that collects employee assessment data and generates AI-powered insights including summaries, recommendations, and wellness scores using OpenAI's GPT-4 API.
 
 ---
 
 ## 🚀 Features
 
-- 📝 **Assessment Form**  
-  Collects productivity and personal development feedback from employees.
+* **Employee Assessment Form**: Captures productivity and personal development metrics.
+* **PostgreSQL Integration**: Employee and assessment data stored in a relational database.
+* **AI-Powered Insight Generation**:
 
-- 🧑‍💼 **Employee Mapping**  
-  Each assessment is linked to a specific employee by email (auto-creates if not found).
-
-- 🤖 **AI Insight Generator (OpenAI GPT-4)**  
-  Automatically generates:
-  - Personal Summary (3–4 sentences)
-  - Top 3 Recommendations
-  - Overall Wellness Score
-
-- 📄 **Beautiful Report Page**  
-  View structured results styled with Tailwind CSS.
-
-- 🛢️ **PostgreSQL Database Integration**  
-  All employees and their assessments are stored in a PostgreSQL database.
+  * Personal summary
+  * Actionable recommendations
+  * Wellness score with explanation
+* **Insightful Report Display**: Structured, readable AI-generated feedback for each employee.
 
 ---
 
-## 📂 Folder Structure
+## 🧪 AI Model Choice and Reasoning
+
+* **Model**: GPT-4
+* **Reason**: Offers structured and contextually rich responses suitable for summarization and recommendation tasks.
+
+---
+
+## 🏆 Most Effective Prompt
+
+```plaintext
+Given the following employee assessment data:
+{data}
+
+1. Personal Summary (3-4 sentences)
+2. Top 3 Recommendations (actionable)
+3. Overall Wellness Score with a short explanation
+```
+
+---
+
+## 🧱 One Challenge Overcome
+
+Ensuring PostgreSQL database schema matched Django models precisely, especially for longer AI-generated text fields.
+
+---
+
+## ⏱ Time Spent
+
+\~6-8 hours (including setup, development, prompt tuning, and testing)
+
+---
+
+## 🧑‍💻 Setup Instructions Summary
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/employee-ai-insight.git
+cd employee-ai-insight
+```
+
+### 2. Create Virtual Environment
+
+```bash
+python -m venv env
+# Linux/macOS	source env/bin/activate
+# Windows	env\Scripts\activate
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure PostgreSQL
+
+* Create a PostgreSQL DB: `employee_ai`
+* Edit `settings.py`:
+
+```python
+DATABASES = {
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'employee_ai',
+    'USER': 'your_db_user',
+    'PASSWORD': 'your_db_password',
+    'HOST': 'localhost',
+    'PORT': '5432',
+  }
+}
+```
+
+### 5. Run Migrations
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+### 6. Start the Server
+
+```bash
+python manage.py runserver
+```
+
+### 7. Access Application
+
+Visit: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+### 8. Configure OpenAI Key
+
+Edit `views.py`:
+
+```python
+headers = {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer YOUR_OPENAI_API_KEY"
+}
+```
+
+---
+
+## 📁 Folder Structure
 
 ```
-r1/
-│
+employee-ai-insight/
 ├── assessment_app/
-│   ├── migrations/
-│   ├── templates/
-│   │   ├── assessment.html
-│   │   └── report.html
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── forms.py
 │   ├── models.py
-│   ├── tests.py
-│   └── views.py
-│
+│   ├── views.py
+│   ├── forms.py
+│   ├── urls.py
+│   └── templates/
+│       ├── assessment.html
+│       └── report.html
 ├── r1/
-│   ├── __init__.py
-│   ├── asgi.py
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
-│
-├── static/
-│   └── css/
-│       └── input.css   # Tailwind input file
-│       └── output.css  # Tailwind output file
-│
 ├── manage.py
 ├── requirements.txt
 └── README.md
@@ -63,117 +143,32 @@ r1/
 
 ---
 
-## ⚙️ Setup Instructions
+## 🔒 .gitignore Recommendations
 
-### 🔧 Prerequisites
-
-- Python 3.8+
-- PostgreSQL
-- Node.js + Tailwind CSS
-
----
-
-### 📦 1. Clone and Setup Virtual Environment
-
-```bash
-git clone https://github.com/your-username/employee-ai-insight-tool.git
-cd employee-ai-insight-tool
-python -m venv env
-.\env\Scriptsctivate  # Windows
-# OR
-source env/bin/activate  # macOS/Linux
+```
+.env
+__pycache__/
+db.sqlite3
+*.pyc
+env/
+*.log
+*.idea/
+*.vscode/
+*.DS_Store
 ```
 
 ---
 
-### 📦 2. Install Dependencies
+## 📽 Live Demo Video (To Record)
 
-```bash
-pip install -r requirements.txt
-```
-
----
-
-### 🛠️ 3. PostgreSQL Database Setup
-
-Login to PostgreSQL and run:
-
-```sql
-CREATE DATABASE employee_ai;
-CREATE USER <XXXXXXXX> WITH PASSWORD 'XXXXXXXX';
-GRANT ALL PRIVILEGES ON DATABASE employee_ai TO <XXXXXXXXXX>;
-```
+* Fill out the form
+* Generate AI insights
+* Show report page with AI output
 
 ---
 
-### ⚙️ 4. Tailwind CSS Setup
+## 📬 GitHub Repository Link
 
-```bash
-npm install -D tailwindcss
-npx tailwindcss init
-```
+[https://github.com/your-username/employee-ai-insight]([https://github.com/your-username/employee-ai-insight](https://github.com/maniranjan2023/employee-wellness-ai-assessment)
 
-Use this command to build Tailwind CSS:
 
-```bash
-npx tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch
-```
-
----
-
-### 🧠 5. Add OpenAI Key
-
-In `views.py`, set your API key directly (if not using `.env`):
-
-```python
-OPENAI_API_KEY = "sk-xxxx..."
-```
-
----
-
-### 🧱 6. Migrations & Superuser
-
-```bash
-python manage.py makemigrations
-python manage.py migrate
-python manage.py createsuperuser
-npm run watch:css 
-```
-
----
-
-### ▶️ 7. Run the Server
-
-```bash
-python manage.py runserver
-```
-
----
-
-### 🌐 Access the App
-
-Go to [http://127.0.0.1:8000](http://127.0.0.1:8000)
-
----
-
-## ✨ Sample Output
-
-- 👤 Employee: John Doe  
-- 📌 Recommendations: Prioritize time-blocking, take short breaks, improve communication  
-- 📊 Wellness Score: 78/100
-
----
-
-## 📌 Technologies Used
-
-- **Backend**: Django 5
-- **Database**: PostgreSQL
-- **Styling**: Tailwind CSS
-- **AI Integration**: OpenAI GPT-4
-- **Forms & Templates**: Django Forms + Jinja Templates
-
----
-
-## 📄 License
-
-MIT License – Feel free to use, modify, and build on this project!
