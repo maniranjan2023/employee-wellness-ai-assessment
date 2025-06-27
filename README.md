@@ -137,6 +137,7 @@ OPENAI_API_KEY = "sk-xxxx..."
 python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
+npm run watch:css 
 ```
 
 ---
