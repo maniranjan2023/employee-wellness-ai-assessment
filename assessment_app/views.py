@@ -8,9 +8,12 @@ import urllib.parse
 from xhtml2pdf import pisa
 from django.template.loader import get_template
 from django.http import HttpResponse
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 # 🔐 Replace this with your actual API key
-
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 def generate_ai_insights(data):
     url = "https://api.openai.com/v1/chat/completions"
 
