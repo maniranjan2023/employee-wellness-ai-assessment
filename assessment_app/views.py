@@ -9,9 +9,6 @@ from xhtml2pdf import pisa
 from django.template.loader import get_template
 from django.http import HttpResponse
 
-
-
-
 # 🔐 Replace this with your actual API key
 OPENAI_API_KEY = ""
 
