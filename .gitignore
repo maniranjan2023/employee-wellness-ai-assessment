@@ -27,6 +27,8 @@ venv.bak/
 # OS-specific
 .DS_Store
 Thumbs.db
+__pycache__/
+*.pyc
 
 # Static/media files (optional if using Tailwind or storing uploads)
 staticfiles/
