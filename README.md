@@ -169,6 +169,6 @@ env/
 
 ## 📬 GitHub Repository Link
 
-[https://github.com/your-username/employee-ai-insight]([https://github.com/your-username/employee-ai-insight](https://github.com/maniranjan2023/employee-wellness-ai-assessment)
+[https://github.com/maniranjan2023/employee-wellness-ai-assessment]([https://github.com/maniranjan2023/employee-wellness-ai-assessment](https://github.com/maniranjan2023/employee-wellness-ai-assessment)
 
 
