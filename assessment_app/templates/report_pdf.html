@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Assessment Report PDF</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        .container { max-width: 800px; margin: auto; }
+        .title { font-size: 28px; font-weight: bold; color: #2563eb; text-align: center; margin-bottom: 24px; }
+        .subtitle { font-size: 20px; font-weight: bold; color: #4c51bf; margin-bottom: 10px; }
+        .section { margin-bottom: 24px; }
+        .box { background: #f8fafc; border-left: 6px solid #2563eb; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+        .box-green { border-left-color: #22c55e; }
+        .box-purple { border-left-color: #a21caf; }
+        .meta { color: #64748b; font-size: 15px; margin-bottom: 18px; }
+        .meta strong { color: #0f172a; }
+        img.chart {
+    display: block;
+    margin: 0 0;
+    max-width: 95vw;
+    max-width: 700px;
+    width: 100%;
+    height: auto;
+  
+    box-sizing: border-box;
+    page-break-inside: avoid;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Employee Wellness Self-Assessment Report</div>
+        <div class="meta">
+            📅 <strong>Date:</strong> {{ assessment.created_at|date:"Y-m-d" }}<br>
+            👤 <strong>Employee:</strong> {{ assessment.employee.name }} ({{ assessment.employee.email }})
+        </div>
+
+        <!-- Chart Section as Image -->
+        <div class="section">
+            <div class="subtitle">Assessment Responses Chart</div>
+            <img class="chart" src="{{ chart_url }}" alt="Assessment Chart">
+        </div>
+
+        <div class="section box">
+            <div class="subtitle">🧠 Personal Summary</div>
+            <div style="font-size: 18px;">{{ assessment.ai_summary|linebreaksbr }}</div>
+        </div>
+
+        <div class="section box box-green">
+            <div class="subtitle">📌 Top 3 Recommendations</div>
+            <div style="font-size: 18px;">{{ assessment.ai_recommendations|linebreaksbr }}</div>
+        </div>
+
+        <div class="section box box-purple">
+            <div class="subtitle">📊 Wellness Score</div>
+            <div style="font-size: 18px;">{{ assessment.wellness_score|linebreaksbr }}</div>
+        </div>
+    </div>
+</body>
+</html>

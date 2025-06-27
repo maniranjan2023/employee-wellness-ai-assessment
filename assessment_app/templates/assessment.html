@@ -1,0 +1,24 @@
+<head>
+ 
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+
+
+<div class="max-w-3xl mx-auto mt-8">
+ 
+  <h1 class="text-3xl font-bold text-center mb-6 text-blue-700">
+    Employee Wellness Self-Assessment Platform
+  </h1>
+<form method="POST" class="max-w-3xl mx-auto p-6 bg-white shadow rounded-lg border-amber-300">
+   {% csrf_token %}
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>{{ form.name.label_tag }} {{ form.name }}</div>
+    <div>{{ form.email.label_tag }} {{ form.email }}</div>
+  </div>
+  <hr class="my-4">
+   
+  {{ form.as_p }}
+  <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-5">Submit</button>
+</form>
+</div>
