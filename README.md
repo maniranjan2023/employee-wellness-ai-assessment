@@ -5,7 +5,7 @@ A Django + PostgreSQL application that collects employee assessment data and gen
 ---
 
 ## Demo Video: 
- https://www.loom.com/share/1a759e8bb3b34380908d93246e8d7c9a?sid=2546dd0a-e21d-440a-a7ad-57d30b050412
+https://www.loom.com/share/1a759e8bb3b34380908d93246e8d7c9a?sid=2546dd0a-e21d-440a-a7ad-57d30b050412
 
 ## 🚀 Features
 
